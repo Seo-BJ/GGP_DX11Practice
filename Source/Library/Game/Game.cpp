@@ -6,15 +6,14 @@ namespace library
       Function definitions
     --------------------------------------------------------------------*/
 
-    /*
     void PrintHi()
     {
         OutputDebugString(L"hi\n");
         MessageBox(nullptr, L"hi", L"Game Graphics Programming", MB_OK);
     }
     
-    */
-
+    
+    
     D3D_DRIVER_TYPE g_driverType = D3D_DRIVER_TYPE_NULL;
     D3D_FEATURE_LEVEL g_featureLevel = D3D_FEATURE_LEVEL_11_0;
 
@@ -48,8 +47,8 @@ namespace library
             .hIcon = LoadIcon(hInstance, IDI_APPLICATION),
             .hCursor = LoadCursor(nullptr, IDC_ARROW),
             .hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW +1),
-            .IpszMenuName = nullptr,
-            .IpszClassName = g_pszWindowClassName,
+            .lpszMenuName = nullptr,
+            .lpszClassName = g_pszWindowClassName,
             .hIconSm = LoadIcon(wcex.hInstance, IDI_APPLICATION),
 
         };
@@ -158,27 +157,134 @@ namespace library
                 break;
         }
       
+      
+
+        IDXGIFactory1* dxgiFactory = nullptr;
+        IDXGIDevice* dxgiDevice = nullptr;
+        hr = g_pd3dDevice->QueryInterface(__uuidof(IDXGIDevice), reinterpret_cast<void**>(&dxgiDevice));
+            if (SUCCEEDED(hr))
+            {
+                IDXGIAdapter* adapter = nullptr;
+                hr = dxgiDevice->GetAdapter(&adapter);
+                if (SUCCEEDED (hr))
+                {
+                    hr = adapter->GetParent(__uuidof(IDXGIFactory1), reinterpret_cast<void**>(&dxgiFactory));
+                    adapter->Release();
+                }
+                dxgiDevice->Release();
+            }
+        if (FAILED(hr))
+            return hr;
+        IDXGIFactory2* dxgiFactory2 = nullptr;
+        hr = dxgiFactory->QueryInterface(__uuidof(IDXGIFactory2), reinterpret_cast<void**>(&dxgiFactory2));
+        if (dxgiFactory2)
+        {     
+            // DirectX 11.1 or later
+            hr = g_pd3dDevice->QueryInterface(__uuidof(IDXGIFactory2), reinterpret_cast<void**>(&g_pd3dDevice1));
+            if (SUCCEEDED(hr))
+            {
+                (void)g_pImmediateContext->QueryInterface(__uuidof(ID3D11DeviceContext1),
+                    reinterpret_cast<void**>(&g_pImmediateContext1));
+            }
+            DXGI_SWAP_CHAIN_DESC1 sd = {};
+            sd.Width = width;
+            sd.Height = height;
+            sd.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+            sd.SampleDesc.Count = 1;
+            sd.SampleDesc.Quality = 0;
+            sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+            sd.BufferCount = 1;
+            hr = dxgiFactory2->CreateSwapChainForHwnd(g_pd3dDevice, g_hWnd, &sd, nullptr, nullptr, &g_pSwapChain1);
+            if (SUCCEEDED (hr))     
+            {
+                hr = g_pSwapChain1->QueryInterface(__uuidof(IDXGISwapChain),
+                    reinterpret_cast<void**>(&g_pSwapChain));
+            }
+            dxgiFactory2->Release();
+        }
+        else
+        {
+            DXGI_SWAP_CHAIN_DESC sd = {};
+            sd.BufferCount = 1;
+            sd.BufferDesc.Width = width;
+            sd.BufferDesc.Height = height;
+            sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+            sd.BufferDesc.RefreshRate.Numerator = 60;
+            sd.BufferDesc.RefreshRate.Denominator = 1;
+            sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+            sd.OutputWindow = g_hWnd;
+            sd.SampleDesc.Count = 1;
+            sd.SampleDesc.Quality = 0;
+            sd.Windowed = TRUE;
+            hr = dxgiFactory->CreateSwapChain(g_pd3dDevice, &sd, &g_pSwapChain);
+        }
+        dxgiFactory->Release();
+
         if (FAILED(hr))
             return hr;
 
+        ID3D11Texture2D* pBackBuffer = nullptr;
+        hr = g_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&pBackBuffer));
+        if (FAILED(hr))
+            return hr;
+        hr = g_pd3dDevice->CreateRenderTargetView(pBackBuffer, nullptr, &g_pRenderTargetView);
+        pBackBuffer->Release();
+        if (FAILED(hr))
+            return hr;
+        g_pImmediateContext->OMSetRenderTargets(1, &g_pRenderTargetView, nullptr);
+                        
+        // Setup the viewport
+        D3D11_VIEWPORT vp;
+        vp.Width = (FLOAT)width;
+        vp.Height = (FLOAT)height;
+        vp.MinDepth = 0.f;
+        vp.MaxDepth = 1.f;
+        vp.TopLeftX = 0;
+        vp.TopLeftY = 0;
+        g_pImmediateContext->RSSetViewports(1, &vp);
 
-
-
-
-
-
-
-
-
-        return E_NOTIMPL;
+        return  S_OK;               
     }
 
     void CleanupDevice()
     {
-
+        if (g_pImmediateContext) g_pImmediateContext->ClearState();
+        if (g_pRenderTargetView) g_pRenderTargetView->Release();
+        if (g_pSwapChain1) g_pSwapChain1->Release();
+        if (g_pSwapChain) g_pSwapChain->Release();
+        if (g_pImmediateContext1) g_pImmediateContext1->Release();
+        if (g_pImmediateContext) g_pImmediateContext->Release();
+        if (g_pd3dDevice1) g_pd3dDevice1->Release();
+        if (g_pd3dDevice) g_pd3dDevice->Release();
     }
     void Render()
     {
-
+        g_pImmediateContext->ClearRenderTargetView(g_pRenderTargetView, Colors::MidnightBlue);
+        g_pSwapChain->Present(0, 0);
     }
+ 
+
+
+    LRESULT WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    {
+        switch (uMsg)
+        {
+        case WM_SIZE:
+            break;
+        case WM_CLOSE:
+            if (MessageBox(hWnd, L"Exit?", L"Game Graphics Programming", MB_OKCANCEL) == IDOK)
+            {
+                DestroyWindow(hWnd);
+            }
+            return 0;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            return 0;
+        default:
+            return DefWindowProc(hWnd, uMsg, wParam, lParam);
+            break;
+        }
+    }
+
+   
 }
