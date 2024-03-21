@@ -13,5 +13,13 @@ namespace library
 
       Summary:  Render the frame
     F---F---F---F---F---F---F---F---F---F---F---F---F---F---F---F---F-F*/
-    void PrintHi();
+    //void PrintHi();
+
+
+    HRESULT InitWindow(_In_ HINSTANCE hInstance, _In_ INT nCmdShow);
+    HRESULT InitDevice();
+    
+    void CleanupDevice();
+    void Render();
+
 }
