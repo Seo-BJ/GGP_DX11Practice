@@ -31,7 +31,7 @@ namespace library
 
     HWND g_hWnd = nullptr;
     HINSTANCE g_hInstance = nullptr;
-    LPCWSTR g_pszWindowName = L"GGP02: Direct3D 11 Basics";
+    LPCWSTR g_pszWindowName = L"2019103556 수학과 서범준";
 
 
     HRESULT InitWindow(HINSTANCE hInstance, INT nCmdShow)
