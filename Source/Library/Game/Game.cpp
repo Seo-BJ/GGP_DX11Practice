@@ -254,40 +254,19 @@ namespace library
         vp.TopLeftY = 0;
         g_pImmediateContext->RSSetViewports(1, &vp);
 
-        SimpleVertex sVertices[] =
-        {
-            {XMFLOAT3(0.0f, 0.5f, 0.5f)},
-            {XMFLOAT3(0.0f, -0.5f, 0.5f)},
-            {XMFLOAT3(-0.0f, -0.5f, 0.5f)},
-        };
-
-        D3D11_BUFFER_DESC bd = {};
-        bd.Usage = D3D11_USAGE_DEFAULT;
-        bd.ByteWidth = sizeof(SimpleVertex) * 3;
-        bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-        bd.CPUAccessFlags = 0;
-
-        D3D11_SUBRESOURCE_DATA initData = {};
-        initData.pSysMem = sVertices;
-        
-        hr = g_pd3dDevice->CreateBuffer(
-            &bd,
-            &initData,
-            &g_pVertexBuffer
-        );
+        hr = CompileShaderFromFile(L"../Library/Lab02.fx", "VS", "vs_5_0", &pVertexShaderBlob);
+        hr = g_pd3dDevice->CreateVertexShader(
+            pVertexShaderBlob->GetBufferPointer(),
+            pVertexShaderBlob->GetBufferSize(),
+            nullptr,
+            &g_pVertexShader);
         if (FAILED(hr))
+        {
+            pVertexShaderBlob->Release();
             return hr;
+        }
 
-        UINT uStride = sizeof(SimpleVertex);
-        UINT uOffset = 0;
-        g_pImmediateContext->IASetVertexBuffers(
-            0,
-            1,
-            &g_pVertexBuffer,
-            &uStride,
-            &uOffset
-        );
-
+    
         ID3DBlob* pVertexShaderBlob = nullptr;
         D3D11_INPUT_ELEMENT_DESC layouts[] =
         {
@@ -315,21 +294,10 @@ namespace library
             return hr;
 
         g_pImmediateContext->IASetInputLayout(g_pVertexLayout);
-        g_pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+       
+   
 
-        hr = CompileShaderFromFile(L"../Library/Lab02.fx", "VS", "vs_5_0", &pVertexShaderBlob);
-        hr = g_pd3dDevice->CreateVertexShader(
-            pVertexShaderBlob->GetBufferPointer(),
-            pVertexShaderBlob->GetBufferSize(),
-            nullptr,
-            &g_pVertexShader);
-        if (FAILED(hr))
-        {
-            pVertexShaderBlob->Release();
-            return hr;
-        }
-
-        hr = CompileShaderFromFile(L"../Library/Lab02.fx", "PS", "ps_5_0", &pVertexShaderBlob);
+        hr = CompileShaderFromFile(L"../Library/Lab02.fx", "PS", "ps_5_0", &pPixelShaderBlob);
         hr = g_pd3dDevice->CreatePixelShader(
             pPixelShaderBlob->GetBufferPointer(),
             pPixelShaderBlob->GetBufferSize(),
@@ -340,6 +308,42 @@ namespace library
             pPixelShaderBlob->Release();
             return hr;
         }
+        // 7
+        SimpleVertex sVertices[] =
+        {
+            {XMFLOAT3(0.0f, 0.5f, 0.5f)},
+            {XMFLOAT3(0.0f, -0.5f, 0.5f)},
+            {XMFLOAT3(-0.0f, -0.5f, 0.5f)},
+        };
+
+        D3D11_BUFFER_DESC bd = {};
+        bd.Usage = D3D11_USAGE_DEFAULT;
+        bd.ByteWidth = sizeof(SimpleVertex) * 3;
+        bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+        bd.CPUAccessFlags = 0;
+
+        D3D11_SUBRESOURCE_DATA initData = {};
+        initData.pSysMem = sVertices;
+
+        hr = g_pd3dDevice->CreateBuffer(
+            &bd,
+            &initData,
+            &g_pVertexBuffer
+        );
+        if (FAILED(hr))
+            return hr;
+        // 8
+        UINT uStride = sizeof(SimpleVertex);
+        UINT uOffset = 0;
+        g_pImmediateContext->IASetVertexBuffers(
+            0,
+            1,
+            &g_pVertexBuffer,
+            &uStride,
+            &uOffset
+        );
+        // 9 
+        g_pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
         return  S_OK;               
     }
@@ -385,6 +389,12 @@ namespace library
     void CleanupDevice()
     {
         if (g_pImmediateContext) g_pImmediateContext->ClearState();
+
+        if (g_pVertexBuffer) g_pVertexBuffer->Release();
+        if (g_pVertexLayout) g_pVertexLayout->Release();
+        if (g_pVertexShader) g_pVertexShader->Release();
+        if (g_pPixelShader) g_pPixelShader->Release();
+
         if (g_pRenderTargetView) g_pRenderTargetView->Release();
         if (g_pSwapChain1) g_pSwapChain1->Release();
         if (g_pSwapChain) g_pSwapChain->Release();
@@ -393,10 +403,7 @@ namespace library
         if (g_pd3dDevice1) g_pd3dDevice1->Release();
         if (g_pd3dDevice) g_pd3dDevice->Release();
 
-        if (g_pVertexBuffer) g_pVertexBuffer->Release();
-        if (g_pVertexLayout ) g_pVertexLayout->Release();
-        if (g_pVertexShader ) g_pVertexShader->Release();
-        if (g_pPixelShader ) g_pPixelShader->Release();
+     
     }
     void Render()
     {
