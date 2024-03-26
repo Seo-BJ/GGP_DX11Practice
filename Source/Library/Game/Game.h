@@ -20,6 +20,13 @@ namespace library
     HRESULT InitWindow(_In_ HINSTANCE hInstance, _In_ INT nCmdShow);
     HRESULT InitDevice();
     
+    HRESULT CompileShaderFromFile(
+        _In_ PCWSTR pszFileName,
+        _In_ PCSTR pszEntryPoint,
+        _In_ PCSTR pszShaderModel,
+        _Outptr_ ID3DBlob** ppBlobOut
+    );
+
     void CleanupDevice();
     void Render();
 
@@ -31,3 +38,8 @@ namespace library
     );
 
 }
+
+struct SimpleVertex
+{
+    XMFLOAT3 Pos;
+};
