@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="VS.hlsl" />
     <FxCompile Include="PS.hlsl" />
+    <FxCompile Include="VS.hlsl" />
   </ItemGroup>
 </Project>

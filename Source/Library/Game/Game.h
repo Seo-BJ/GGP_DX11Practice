@@ -37,9 +37,9 @@ namespace library
         _In_ LPARAM lParam
     );
 
+    struct SimpleVertex
+    {
+        XMFLOAT3 Pos;
+    };
 }
 
-struct SimpleVertex
-{
-    XMFLOAT3 Pos;
-};

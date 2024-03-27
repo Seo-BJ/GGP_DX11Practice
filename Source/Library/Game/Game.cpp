@@ -38,9 +38,8 @@ namespace library
     ID3D11PixelShader* g_pPixelShader = nullptr;
     ID3D11Buffer* g_pVertexBuffer = nullptr;
     ID3D11InputLayout* g_pVertexLayout = nullptr;
-    ID3DBlob* pPixelShaderBlob = nullptr;
-    ID3DBlob* pVertexShaderBlob = nullptr;
 
+    
 
 
 
@@ -254,7 +253,19 @@ namespace library
         vp.TopLeftY = 0;
         g_pImmediateContext->RSSetViewports(1, &vp);
 
+ 
+        ID3DBlob* pVertexShaderBlob = nullptr;
+        // 1, 2
         hr = CompileShaderFromFile(L"../Library/Lab02.fx", "VS", "vs_5_0", &pVertexShaderBlob);
+        if (FAILED(hr))
+        {
+            MessageBox(
+                nullptr,
+                L"The FX File cannot be compiled. Please run this executable from the directory that contains the FX file",
+                L"ERROR",
+                MB_OK
+            );
+        }
         hr = g_pd3dDevice->CreateVertexShader(
             pVertexShaderBlob->GetBufferPointer(),
             pVertexShaderBlob->GetBufferSize(),
@@ -267,7 +278,9 @@ namespace library
         }
 
     
-        ID3DBlob* pVertexShaderBlob = nullptr;
+    
+        // 3, 4
+
         D3D11_INPUT_ELEMENT_DESC layouts[] =
         {
             {"POSITION",
@@ -295,9 +308,18 @@ namespace library
 
         g_pImmediateContext->IASetInputLayout(g_pVertexLayout);
        
-   
-
+    // 5, 6
+        ID3DBlob* pPixelShaderBlob = nullptr;
         hr = CompileShaderFromFile(L"../Library/Lab02.fx", "PS", "ps_5_0", &pPixelShaderBlob);
+        if (FAILED(hr))
+        {
+            MessageBox(
+                nullptr,
+                L"The FX File cannot be compiled. Please run this executable from the directory that contains the FX file",
+                L"ERROR",
+                MB_OK
+            );
+        }
         hr = g_pd3dDevice->CreatePixelShader(
             pPixelShaderBlob->GetBufferPointer(),
             pPixelShaderBlob->GetBufferSize(),
@@ -312,9 +334,10 @@ namespace library
         SimpleVertex sVertices[] =
         {
             {XMFLOAT3(0.0f, 0.5f, 0.5f)},
-            {XMFLOAT3(0.0f, -0.5f, 0.5f)},
-            {XMFLOAT3(-0.0f, -0.5f, 0.5f)},
+            {XMFLOAT3(0.5f, -0.5f, 0.5f)},
+            {XMFLOAT3(-0.5f, -0.5f, 0.5f)},
         };
+
 
         D3D11_BUFFER_DESC bd = {};
         bd.Usage = D3D11_USAGE_DEFAULT;
@@ -374,43 +397,14 @@ namespace library
         {
             if (pERrorBlob)
             {
-                OutputDebugStringA(
-                    reinterpret_cast<PCSTR>(pERrorBlob->GetBufferPointer()));
+                OutputDebugStringA(reinterpret_cast<PCSTR>(pERrorBlob->GetBufferPointer()));
                 pERrorBlob->Release();
             }
             return hr;
         }
         if (pERrorBlob) pERrorBlob->Release();
         return S_OK;
-
-  
-    };
-
-    void CleanupDevice()
-    {
-        if (g_pImmediateContext) g_pImmediateContext->ClearState();
-
-        if (g_pVertexBuffer) g_pVertexBuffer->Release();
-        if (g_pVertexLayout) g_pVertexLayout->Release();
-        if (g_pVertexShader) g_pVertexShader->Release();
-        if (g_pPixelShader) g_pPixelShader->Release();
-
-        if (g_pRenderTargetView) g_pRenderTargetView->Release();
-        if (g_pSwapChain1) g_pSwapChain1->Release();
-        if (g_pSwapChain) g_pSwapChain->Release();
-        if (g_pImmediateContext1) g_pImmediateContext1->Release();
-        if (g_pImmediateContext) g_pImmediateContext->Release();
-        if (g_pd3dDevice1) g_pd3dDevice1->Release();
-        if (g_pd3dDevice) g_pd3dDevice->Release();
-
-     
     }
-    void Render()
-    {
-        g_pImmediateContext->ClearRenderTargetView(g_pRenderTargetView, Colors::MidnightBlue);
-        g_pSwapChain->Present(0, 0);
-    }
- 
 
 
     LRESULT WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -433,6 +427,39 @@ namespace library
             break;
         }
     }
+    void Render()
+    {
+        g_pImmediateContext->ClearRenderTargetView(g_pRenderTargetView, Colors::MidnightBlue);
+
+        g_pImmediateContext->VSSetShader(g_pVertexShader, nullptr, 0);
+        g_pImmediateContext->PSSetShader(g_pPixelShader, nullptr, 0);
+        g_pImmediateContext->Draw(3, 0);
+
+        g_pSwapChain->Present(0, 0);
+    }
+
+
+    void CleanupDevice()
+    {
+        if (g_pImmediateContext) g_pImmediateContext->ClearState();
+
+        if (g_pVertexBuffer) g_pVertexBuffer->Release();
+        if (g_pVertexLayout) g_pVertexLayout->Release();
+        if (g_pVertexShader) g_pVertexShader->Release();
+        if (g_pPixelShader) g_pPixelShader->Release();
+
+        if (g_pRenderTargetView) g_pRenderTargetView->Release();
+        if (g_pSwapChain1) g_pSwapChain1->Release();
+        if (g_pSwapChain) g_pSwapChain->Release();
+        if (g_pImmediateContext1) g_pImmediateContext1->Release();
+        if (g_pImmediateContext) g_pImmediateContext->Release();
+        if (g_pd3dDevice1) g_pd3dDevice1->Release();
+        if (g_pd3dDevice) g_pd3dDevice->Release();
+
+     
+    }
+  
+
 
    
 }

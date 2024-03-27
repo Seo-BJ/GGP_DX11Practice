@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <ProjectOutputs />
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\PS.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\VS.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>

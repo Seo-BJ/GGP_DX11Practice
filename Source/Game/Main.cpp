@@ -29,6 +29,8 @@ INT WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 			library::Render();
 		}
 	}
+
+
 	// Destroy
 	library::CleanupDevice();
 	return (int)msg.wParam;

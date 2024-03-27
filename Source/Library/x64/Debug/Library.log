@@ -29,6 +29,10 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winioctl.h(16218,
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winioctl.h(16367,22): warning C4668: '_WIN32_WINNT_WIN10_RS4'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winioctl.h(16380,22): warning C4668: '_WIN32_WINNT_WIN10_RS4'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\winioctl.h(16609,22): warning C4668: '_WIN32_WINNT_WIN10_RS1'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(22,127): warning C4668: '_MANAGED'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(22,142): warning C4668: '_M_CEE'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(281,100): warning C4668: '__arm__'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(281,111): warning C4668: '__aarch64__'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\dxgi.h(182,30): warning C4820: 'DXGI_FRAME_STATISTICS': '4'바이트 채움 문자가 데이터 멤버 'DXGI_FRAME_STATISTICS::SyncRefreshCount' 뒤에 추가되었습니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\dxgi.h(189,16): warning C4820: 'DXGI_MAPPED_RECT': '4'바이트 채움 문자가 데이터 멤버 'DXGI_MAPPED_RECT::Pitch' 뒤에 추가되었습니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\dxgi.h(299,22): warning C4820: 'DXGI_SWAP_CHAIN_DESC': '4'바이트 채움 문자가 데이터 멤버 'DXGI_SWAP_CHAIN_DESC::BufferCount' 뒤에 추가되었습니다.
@@ -530,31 +534,58 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11.h(1205): me
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11_4.h(3786,40): warning C4820: 'D3D11_VIDEO_DECODER_BUFFER_DESC2': '4'바이트 채움 문자가 데이터 멤버 'D3D11_VIDEO_DECODER_BUFFER_DESC2::DataSize' 뒤에 추가되었습니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11_4.h(3789,114): warning C4820: 'D3D11_VIDEO_DECODER_BUFFER_DESC2': '4'바이트 채움 문자가 데이터 멤버 'D3D11_VIDEO_DECODER_BUFFER_DESC2::IVSize' 뒤에 추가되었습니다.
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11_4.h(3793,5): warning C4820: 'D3D11_VIDEO_DECODER_BUFFER_DESC2': '4'바이트 채움 문자가 데이터 멤버 'D3D11_VIDEO_DECODER_BUFFER_DESC2::cBlocksStripeClear' 뒤에 추가되었습니다.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(22,127): warning C4668: '_MANAGED'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(22,142): warning C4668: '_M_CEE'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(281,100): warning C4668: '__arm__'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\DirectXMath.h(281,111): warning C4668: '__aarch64__'은(는) 전처리기 매크로로 정의되어 있지 않으므로 '#if/#elif'에 해당하는 '0'으로 바뀝니다.
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(122,40): warning C4365: '초기화 중': 'LONG'에서 'UINT'(으)로의 변환입니다. signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(123,41): warning C4365: '초기화 중': 'LONG'에서 'UINT'(으)로의 변환입니다. signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(287): warning C4715: 'library::WindowProc': 모든 제어 경로에서 값을 반환하지는 않습니다.
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(233): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(232) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(233) : 참고: 이 줄에서 호출 피드
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(229): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(228) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(229) : 참고: 이 줄에서 호출 피드
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(224): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(223) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(224) : 참고: 이 줄에서 호출 피드
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(177): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(176) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(177) : 참고: 이 줄에서 호출 피드
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(153): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(146) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'driverTypeIndex' 범위
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(153) : 참고: 이 줄에서 호출 피드
-C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(149): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(146) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'driverTypeIndex' 범위
-  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(149) : 참고: 이 줄에서 호출 피드
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(58,39): warning C4820: '_D3D11_SIGNATURE_PARAMETER_DESC': '2'바이트 채움 문자가 데이터 멤버 '_D3D11_SIGNATURE_PARAMETER_DESC::ReadWriteMask' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(60,1): warning C4820: '_D3D11_SIGNATURE_PARAMETER_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_SIGNATURE_PARAMETER_DESC::MinPrecision' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(77,41): warning C4820: '_D3D11_SHADER_VARIABLE_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_SHADER_VARIABLE_DESC::uFlags' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(93,37): warning C4820: '_D3D11_SHADER_TYPE_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_SHADER_TYPE_DESC::Offset' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(105,36): warning C4820: '_D3D11_SHADER_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_SHADER_DESC::Version' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(158,1): warning C4820: '_D3D11_SHADER_INPUT_BIND_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_SHADER_INPUT_BIND_DESC::NumSamples' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(181,36): warning C4820: '_D3D11_FUNCTION_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_FUNCTION_DESC::Version' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d11shader.h(209,49): warning C4820: '_D3D11_FUNCTION_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D11_FUNCTION_DESC::MinFeatureLevel' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(71,39): warning C4820: '_D3D12_SIGNATURE_PARAMETER_DESC': '2'바이트 채움 문자가 데이터 멤버 '_D3D12_SIGNATURE_PARAMETER_DESC::ReadWriteMask' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(73,1): warning C4820: '_D3D12_SIGNATURE_PARAMETER_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_SIGNATURE_PARAMETER_DESC::MinPrecision' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(90,41): warning C4820: '_D3D12_SHADER_VARIABLE_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_SHADER_VARIABLE_DESC::uFlags' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(106,37): warning C4820: '_D3D12_SHADER_TYPE_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_SHADER_TYPE_DESC::Offset' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(118,36): warning C4820: '_D3D12_SHADER_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_SHADER_DESC::Version' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(173,1): warning C4820: '_D3D12_SHADER_INPUT_BIND_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_SHADER_INPUT_BIND_DESC::uID' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(215,36): warning C4820: '_D3D12_FUNCTION_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_FUNCTION_DESC::Version' 뒤에 추가되었습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\d3d12shader.h(243,49): warning C4820: '_D3D12_FUNCTION_DESC': '4'바이트 채움 문자가 데이터 멤버 '_D3D12_FUNCTION_DESC::MinFeatureLevel' 뒤에 추가되었습니다.
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(132,40): warning C4365: '초기화 중': 'LONG'에서 'UINT'(으)로의 변환입니다. signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(133,41): warning C4365: '초기화 중': 'LONG'에서 'UINT'(으)로의 변환입니다. signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(429): warning C4715: 'library::WindowProc': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(403): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(396) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(403) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(357): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(356) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(357) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(331): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(328) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(331) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(307): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(306) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(307) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(277): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(274) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(277) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(243): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(242) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(243) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(239): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(238) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(239) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(234): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(233) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(234) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(187): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(186) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'hr' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(187) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(163): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(156) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'driverTypeIndex' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(163) : 참고: 이 줄에서 호출 피드
+C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(159): warning C5045: 컴파일러는 /Qspectre 스위치가 지정된 경우 메모리 로드를 위해 스펙터 완화를 삽입합니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(156) : 참고: 이 줄에서 비교에 의해 검사된 인덱스 'driverTypeIndex' 범위
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.cpp(159) : 참고: 이 줄에서 호출 피드
   Library.vcxproj -> C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\Libraryd.lib
   하위 디렉터리 또는 파일 C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\..\Library\x64\Debug이(가) 이미 있습니다.
   C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\Game.exe
@@ -562,4 +593,6 @@ C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Source\Library\Game\Game.
   C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\Libraryd.idb
   C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\Libraryd.lib
   C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\Libraryd.pdb
-          5개 파일이 복사되었습니다.
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\PS.cso
+  C:\Users\binij\OneDrive\문서\GitHub\GGP_DX11Practice\Build\x64\Debug\VS.cso
+          7개 파일이 복사되었습니다.
